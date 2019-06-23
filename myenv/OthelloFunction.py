@@ -80,15 +80,13 @@ def can_rev(board,x, y, hand):
 
                 if 0 <= rx < BOARD_SIZE and 0 <= ry < BOARD_SIZE:
                     request = board[ry][rx]
-
-                    if request == -1:
+                    if request == NO_STONE:
                         break
-
                     if request == hand:
                         if tmp != []:
                             flippable.extend(tmp)
+                        break
                     else:
-
                         tmp.append((rx, ry))
                 else:
                     break

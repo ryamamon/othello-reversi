@@ -23,7 +23,6 @@ while not done :
     if action_list == []:
         action_list.append(64)
     
-    print (action_list)
     put_point = [0,0]
     while True:
         while True:
@@ -39,6 +38,7 @@ while not done :
 
     observation,reward,done,info = env._step(action)
 
+env._render()
 if reward > 0:
     result = 'win '
 elif reward < 0:
