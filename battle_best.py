@@ -4,7 +4,7 @@ import numpy as np
 import gym
 
 from myenv.RL_model import DQNmodel
-from myenv.OthelloFunction import action_to_point,_to_action, get_possible_actions, onehot_to_board
+from myenv.OthelloFunction import action_to_point,point_to_action, get_possible_actions, onehot_to_board
 
 ENV_WEIGHT_PATH = 'myenv/params/best_weights.h5f'
 

@@ -125,7 +125,6 @@ def get_reward(board,hand):
 
     return reward
 
-
 def get_possible_actions(board, my_hand):
     actions=[]
     d = BOARD_SIZE
@@ -138,8 +137,6 @@ def get_possible_actions(board, my_hand):
             if (board[pos_y, pos_x] != NO_STONE):
                 continue
             for dy in DIRECTION:
-                if pos_y*8 + pos_x in actions:
-                    break
                 for dx in DIRECTION:
                     if pos_y*8 + pos_x in actions:
                         break
@@ -151,19 +148,20 @@ def get_possible_actions(board, my_hand):
                         depth += 1
                         rx = pos_x + (dx * depth)
                         ry = pos_y + (dy * depth)
-
+                        
                         if 0 <= rx < d and 0 <= ry < d:
                             request = board[ry][rx]
-                            if request == -1:
+                            if request == NO_STONE:
                                 break
                             if request == my_hand:
                                 if opp_count > 0:
                                     actions.append(pos_y*8 + pos_x)
+                                break
                             else:
                                 opp_count += 1
                         else:
                             break
-    return actions
+return actions
 
 def onehot_to_board(board_onehot):
     board = np.ones((BOARD_SIZE,BOARD_SIZE)) * -1
