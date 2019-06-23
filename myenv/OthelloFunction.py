@@ -161,7 +161,7 @@ def get_possible_actions(board, my_hand):
                                 opp_count += 1
                         else:
                             break
-return actions
+    return actions
 
 def onehot_to_board(board_onehot):
     board = np.ones((BOARD_SIZE,BOARD_SIZE)) * -1

@@ -22,11 +22,15 @@ while not done :
 
     if action_list == []:
         action_list.append(64)
-
+    
+    print (action_list)
     put_point = [0,0]
     while True:
-        point = input('please input putting point x,y >>')
-        point = point.split(',')
+        while True:
+            point = input('please input putting point x,y >>')
+            point = point.split(',')
+            if len(point) == 2 and point[0].isdecimal() and point[1].isdecimal():
+                break
         put_point[0] = int(point[1]) - 1
         put_point[1] = int(point[0]) - 1
         action = point_to_action(put_point)
